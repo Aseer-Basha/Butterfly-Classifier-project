@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Result - Butterfly Classifier{% endblock %}
+
+{% block content %}
+<div class="prediction-header">
+    <div class="container text-center text-white">
+        <h2>Result</h2>
+        <p class="small">Home / Result</p>
+    </div>
+</div>
+
+<div class="container my-5 text-center">
+    <div class="card p-5 shadow-lg">
+        <h3 class="mb-4">Butterfly Classification Result</h3>
+        
+        <h1 class="text-success display-4 font-weight-bold">
+            The uploaded image is: {{ prediction_result }} 
+            <span class="small d-block mt-2">Confidence: {{ confidence }}</span>
+        </h1>
+        
+        <hr class="my-4">
+
+        <h5 class="mb-3">Probabilities for all families ({{ all_results|length }} detected):</h5>
+        
+        <ul class="list-group mx-auto" style="max-width: 400px;">
+            {% for result in all_results %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ result.name }}
+                <span class="badge badge-primary badge-pill" style="background-color: #007bff; color: white;">
+                    {{ result.confidence }}
+                </span>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <a href="/input" class="btn btn-outline-success mt-4">Upload another image</a>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Prediction - Butterfly Classifier{% endblock %}
+
+{% block content %}
+<div class="prediction-header">
+    <div class="container text-center text-white">
+        <h2>Prediction</h2>
+        <p class="small">Home / Predict</p>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <form action="/predict" method="POST" enctype="multipart/form-data">
+                <h3>Upload an image of a card </h3>
+                
+                <div class="custom-file my-4">
+                    <input type="file" class="custom-file-input" id="customFile" name="file" accept="image/*" required>
+                    <label class="custom-file-label" for="customFile">Choose file...</label>
+                </div>
+                
+                <button type="submit" class="btn btn-lg btn-success">Predict</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

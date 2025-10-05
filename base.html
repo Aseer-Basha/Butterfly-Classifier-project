@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Butterfly Classifier{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #343a40;">
+        <div class="container">
+            <a class="navbar-brand" href="/">127.0.0.1:5000</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    <li class="nav-item active">
+                        <a class="btn btn-success" href="/input">Get Started</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+    <footer class="bg-dark text-white pt-5 pb-4 mt-5">
+        <div class="container">
+            <div class="row justify-content-center mb-4">
+                <div class="col-md-6 text-center">
+                    <p>SUBSCRIBE TO OUR NEWSLETTER</p>
+                    <form action="/predict" method="POST" class="form-inline justify-content-center">
+                    <input type="email" name="email" class="form-control mr-2" placeholder="Your Email">
+                    <button type="submit" class="btn btn-success">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row pt-3 border-top border-secondary">
+                <div class="col-md-3"><h5>AgriCulture</h5><p>ACCM Asian Street</p></div>
+                <div class="col-md-3"><h5>Useful Links</h5><ul class="list-unstyled"><li>Home</li><li>About us</li></ul></div>
+                <div class="col-md-3"><h5>Our Services</h5><ul class="list-unstyled"><li>Web Design</li><li>Development</li></ul></div>
+                <div class="col-md-3"><h5>More Info</h5><ul class="list-unstyled"><li>Privacy Policy</li><li>Terms & Conditions</li></ul></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
